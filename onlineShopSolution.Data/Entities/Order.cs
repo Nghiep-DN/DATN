@@ -1,0 +1,28 @@
+﻿using onlineShopSolution.Data.Enum;
+using onlineShopSolution.Data.Enums;
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace onlineShopSolution.Data.Entities
+{
+    public class Order
+    {
+        public int Id { get; set; }
+        public DateTime OrderDate { get; set; }
+        public Guid UserId { get; set; }
+        public string ShipName { get; set; }
+        public string ShipAddress { get; set; }
+        public string ShipEmail { get; set; }
+        public string ShipPhoneNumber { get; set; }
+        public OrderStatus Status { get; set; }
+
+        //lien ket 1 1 voi OrderDetail
+        public List<OrderDetail> OrderDetails { get; set; }
+
+        public AppUser AppUser { get; set; }
+
+
+
+    }
+}

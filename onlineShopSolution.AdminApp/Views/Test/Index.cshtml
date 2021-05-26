@@ -1,0 +1,39 @@
+﻿@{
+    ViewData["Title"] = "Index-Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Scripts{
+    <script src="~/custom/testB.js"></script>
+    <script src="~/custom/customJs/category/test.js"></script>
+}
+
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><b>Danh sách hồ sơ vụ việc được tạo</b></div>
+
+    <div class="table-responsive padding-top-10 backgroud-white">
+        <table id="tableCaseDocument" data-order-column="" data-paging="true" data-sort="true" style="width:100%">
+        </table>
+    </div>
+    <!-- teamplate ACTION -->
+    <template id="tempGridCaseDocument">
+        <div class="template">
+            <div data-name="id" data-display-name="" data-type="checkbox" data-visible="" data-width=""></div>
+            <div data-name="CaseDocumentName" data-display-name="Tên HSVV" data-searching="true" data-type="text" data-allow-search="" data-visible="" data-width="">Tên HSVV</div>
+            <div data-name="CreatedBy" data-display-name="Người tạo" data-searching="true" data-type="text" data-allow-search="" data-visible="" data-width="">Người tạo</div>
+            <div data-name="CreatedDate" data-display-name="Ngày tạo" data-searching="true" data-type="date" data-allow-search="" data-visible="" data-width="">Ngày tạo</div>
+            <div data-name="Id" data-type="action" data-display-name="Hành động" data-template="tempAction" data-visible="" data-width=""></div>
+        </div>
+    </template>
+    <!-- teamplate ACTION -->
+    <template id="tempAction">
+        <div class="dis-flex">
+            <div class="btn action-add-new btn-action-grid" onclick="detailDoc(this)" data-action="Detail">Xem chi tiết HSVV</div>
+            <div class="btn action-add-new btn-action-grid" onclick="updateDoc(this)" data-action="Update">Bổ sung </div>
+        </div>
+    </template>
+
+</div>
+
+
+<input type="hidden" id="urlGetAjaxCaseDoc" value="@Url.Action("AjaxGetCaseDocument","CaseDocument")" />

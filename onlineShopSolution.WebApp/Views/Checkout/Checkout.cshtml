@@ -1,0 +1,117 @@
+﻿@model CheckoutViewModel
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{ var culture = CultureInfo.CurrentCulture.Name; }
+@inject Microsoft.Extensions.Configuration.IConfiguration Configuration;
+<ul class="breadcrumb">
+    <li><a>Home</a> <span class="divider">/</span></li>
+    <li class="active"> SHOPPING CART</li>
+</ul>
+@*<input type="hidden" name="name" value="@Model.CheckoutModel.UserId" />*@
+<h3>  SHOPPING CART [ <small>@Model.CartItems.Count Item(s) </small>]<a href="/" class="btn btn-large pull-right"><i class="icon-arrow-left"></i> Continue Shopping </a></h3>
+<hr class="soft" />
+@if (TempData["SuccessMsg"] != null)
+{
+    <span class="alert alert-success">@TempData["SuccessMsg"]</span>
+}
+else
+{
+    <table class="table table-bordered" id="tblCart">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Name</th>
+                <th>Quantity/Update</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody id="cart-body">
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <th><img width="60" src="@(Configuration["BaseAddress"] + item.Image)" alt="@item.Name"></th>
+                    <th>@item.Description</th>
+                    <th>@item.Quantity</th>
+                    <th>@item.Price</th>
+                    <th>@(item.Quantity*item.Price)</th>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" style="text-align:right"><strong>TOTAL =</strong></td>
+                <td class="label label-important" style="display:block"> <strong>@Model.CartItems.Sum(x => x.Price * x.Quantity).ToString("N0") </strong></td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+    <table class="table table-bordered" id="tblVouchers">
+        <tbody>
+
+            <tr>
+                <td>
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label"><strong> VOUCHERS CODE: </strong> </label>
+                            <div class="controls">
+                                <input type="text" class="input-medium" placeholder="CODE">
+                                <button type="submit" class="btn"> ADD </button>
+                            </div>
+                        </div>
+                    </form>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+
+    <table class="table table-bordered" id="tblShip">
+        <tr><th>ESTIMATE YOUR SHIPPING </th></tr>
+        <tr>
+            <td>
+                <form class="form-horizontal" action="/@culture/Checkout/Checkout" method="POST">
+                    <div class="control-group">
+                        <label class="control-label" for="inputName">Name </label>
+                        <div class="controls">
+                            <input type="text" id="inputName" asp-for="CheckoutModel.Name" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputAddress">Address </label>
+                        <div class="controls">
+                            <input type="text" id="inputAddress" asp-for="CheckoutModel.Address" placeholder="Address">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputEmail">Email </label>
+                        <div class="controls">
+                            <input type="text" id="inputEmail" asp-for="CheckoutModel.Email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputPhoneNumber">Phone Number </label>
+                        <div class="controls">
+                            <input type="text" id="inputPhoneNumber" asp-for="CheckoutModel.PhoneNumber" placeholder="Phone Number">
+                        </div>
+                    </div>
+
+
+                    <div class="control-group">
+                        <div class="controls">
+                            <button type="submit" class="btn">ESTIMATE </button>
+                        </div>
+                    </div>
+                </form>
+            </td>
+        </tr>
+    </table>
+
+    <a href="/" class="btn btn-large"><i class="icon-arrow-left"></i> Continue Shopping </a>
+}
+
+
+

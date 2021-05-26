@@ -1,0 +1,11 @@
+﻿
+.required-error, required-error:focus {
+    border: 1px solid red;
+}
+
+.input-modal{
+    margin-bottom: 10px;
+}
+.error {
+    color: red;
+}

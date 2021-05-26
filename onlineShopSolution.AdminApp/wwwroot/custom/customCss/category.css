@@ -1,0 +1,39 @@
+﻿body {
+}
+.sort_col_table {
+    position: relative;
+    cursor: pointer;
+}
+
+    .sort_col_table i {
+        position: absolute;
+        right: 16px;
+        top: 9px;
+        color: rgb(143, 144, 144);
+    }
+
+.search_col_table {
+    position: relative;
+    width: auto;
+    height: 39px;
+    background-color: #ffffff;
+    padding: 8px;
+    margin-right: 8px;
+}
+
+    .search_col_table > input {
+        width: 97%;
+        height: auto;
+        position: absolute;
+        top: 6px;
+        left: auto;
+        border-color: rgb(195, 225, 251);
+        box-sizing: border-box;
+    }
+
+    .search_col_table > i {
+        position: absolute;
+        top: 12px;
+        right: 16px;
+        color: #6deafa;
+    }

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\onlineShopSolution.Data\onlineShopSolution.Data.csproj" />
+    <ProjectReference Include="..\onlineShopSolution.Utilities\onlineShopSolution.Utilities.csproj" />
+    <ProjectReference Include="..\onlineShopSolutionViewModel\onlineShopSolution.ViewModel.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="bin\Debug\netcoreapp3.1\" />
+  </ItemGroup>
+
+</Project>
