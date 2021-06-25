@@ -71,14 +71,14 @@
             <div class="control-group">
                 <label class="control-label"><span>@Model.Product.Price</span></label>
                 <div class="controls">
-                    <input type="number" class="span1" placeholder="Qty." />
+                    @*<input type="number" class="span1" placeholder="Qty." />*@
                     <button type="submit" class="btn btn-large btn-primary pull-right btn-add-cart" data-id="@Model.Product.Id"> <localize>Add to</localize> <i class=" icon-shopping-cart"></i></button>
                 </div>
             </div>
         </form>
 
         <hr class="soft" />
-        <h4><localize>items in stock: </localize> @Model.Product.Stock</h4>
+        @*<h4><localize>items in stock: </localize> @Model.Product.Stock</h4>
         <form class="form-horizontal qtyFrm pull-right">
             <div class="control-group">
                 <label class="control-label"><span>Color</span></label>
@@ -91,14 +91,30 @@
                     </select>
                 </div>
             </div>
-        </form>
+        </form>*@
         <hr class="soft clr" />
         <p>
             @Html.Raw(Model.Product.Details)
         </p>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas vitae scel<span id="dots">...</span><span id="more">erisque enim ligula venenatis dolor. Maecenas nisl est, ultrices nec congue eget, auctor vitae massa. Fusce luctus vestibulum augue ut aliquet. Nunc sagittis dictum nisi, sed ullamcorper ipsum dignissim ac. In at libero sed nunc venenatis imperdiet sed ornare turpis. Donec vitae dui eget tellus gravida venenatis. Integer fringilla congue eros non fermentum. Sed dapibus pulvinar nibh tempor porta.</span></p>
-        <button onclick="myFunction()" id="myBtn">Read more</button>
+        <p>
+            Tên sản phẩm: Set quà L'angfarm De Amour, hộp, nhãn đỏ
+
+            Thương hiệu: L'angfarm - Đặc Sản Đà Lạt
+
+            Mã sản phẩm: 110985
+
+            Mã vạch: 8936003722132
+
+            Hạn sử dụng: 6 tháng<span id="dots">...</span><span id="more">
+    Hướng dẫn bảo quản: Nơi khô ráo, thoáng mát. Tránh ánh nắng mặt trời trực tiếp
+
+    Hướng dẫn sử dụng: Dùng ngay sau khi mở bao bì
+
+    Thông tin cảnh báo an toàn, vệ sinh: Không sử dụng sản phẩm khi có hiện tượng nấm mốc, mùi vị lạ
+</span>
+        </p>
+        <button onclick="myFunction()" id="myBtn"><localize>Read more</localize></button>
 
         <a class="btn btn-small pull-right" href="#detail"><localize>More Details</localize></a>
         <br class="clr" />

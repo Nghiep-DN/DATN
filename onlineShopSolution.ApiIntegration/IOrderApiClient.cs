@@ -9,7 +9,12 @@ namespace onlineShopSolution.ApiIntegration
 {
     public interface IOrderApiClient
     {
+        //client
         Task<bool> Create(CheckoutRequest request);
         Task<ApiResult<bool>> CreatedOrder(CheckoutRequest request);
+        //admin
+        Task<bool> Delete(int id);
+        Task<OrderViewModel> GetDetail(int id);
+        Task<PagedResult<OrderViewModel>> GetPaging(OrderPagingRequest request);
     }
 }

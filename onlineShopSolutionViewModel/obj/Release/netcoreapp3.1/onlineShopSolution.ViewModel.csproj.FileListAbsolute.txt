@@ -1,0 +1,12 @@
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolutionViewModel\bin\Release\netcoreapp3.1\onlineShopSolution.ViewModel.deps.json
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolutionViewModel\bin\Release\netcoreapp3.1\onlineShopSolution.ViewModel.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolutionViewModel\bin\Release\netcoreapp3.1\onlineShopSolution.ViewModel.pdb
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolutionViewModel\bin\Release\netcoreapp3.1\onlineShopSolution.Data.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolutionViewModel\bin\Release\netcoreapp3.1\onlineShopSolution.Data.pdb
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolutionViewModel\obj\Release\netcoreapp3.1\onlineShopSolution.ViewModel.csprojAssemblyReference.cache
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolutionViewModel\obj\Release\netcoreapp3.1\onlineShopSolution.ViewModel.AssemblyInfoInputs.cache
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolutionViewModel\obj\Release\netcoreapp3.1\onlineShopSolution.ViewModel.AssemblyInfo.cs
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolutionViewModel\obj\Release\netcoreapp3.1\onlineShopSolution.ViewModel.csproj.CoreCompileInputs.cache
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolutionViewModel\obj\Release\netcoreapp3.1\onlineShopSolution.ViewModel.csproj.CopyComplete
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolutionViewModel\obj\Release\netcoreapp3.1\onlineShopSolution.ViewModel.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolutionViewModel\obj\Release\netcoreapp3.1\onlineShopSolution.ViewModel.pdb

@@ -78,5 +78,25 @@ namespace onlineShopSolution.ApiIntegration
             return JsonConvert.DeserializeObject<ApiErrorResult<bool>>(result);
         }
 
+
+        public async Task<bool> Delete(int id)
+        {
+            return await Delete("/api/orders/" + id);
+        }
+
+
+        public async Task<OrderViewModel> GetDetail(int id)
+        {
+            return await GetAsync<OrderViewModel>($"/api/orders/getdetail/{id}");
+        }
+
+        public async Task<PagedResult<OrderViewModel>> GetPaging(OrderPagingRequest request)
+        {
+            var data = await GetAsync<PagedResult<OrderViewModel>>($"/api/orders/paging?pageIndex={request.pageIndex}" +
+                $"&pageSize={request.pageSize}" +
+                $"&keyword={request.Keyword}");
+            return data;
+        }
+
     }
 }

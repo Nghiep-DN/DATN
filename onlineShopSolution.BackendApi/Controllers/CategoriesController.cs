@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using onlineShopSolution.Application.Catalog.Categories;
 using onlineShopSolution.ViewModel.Catalog.Categories;
+using onlineShopSolution.ViewModel.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,14 @@ namespace onlineShopSolution.BackendApi.Controllers
         public async Task<IActionResult> GetAll(string languageId)
         {
             var products = await _categoryService.GetAll(languageId);
+            return Ok(products);
+        }
+
+
+        [HttpGet("paging")]
+        public async Task<IActionResult> GetPagings([FromQuery] GetManageCategoryPagingRequest request)
+        {
+            var products = await _categoryService.GetPaging(request);
             return Ok(products);
         }
 

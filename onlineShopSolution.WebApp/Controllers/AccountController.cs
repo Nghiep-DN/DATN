@@ -15,9 +15,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Authentication.Facebook;
+using Microsoft.AspNetCore.Authorization;
 
 namespace eShopSolution.WebApp.Controllers
 {
+    //[AllowAnonymous, Route("account")]
     public class AccountController : Controller
     {
         private readonly IUserApiClient _userApiClient;
@@ -29,6 +32,39 @@ namespace eShopSolution.WebApp.Controllers
             _userApiClient = userApiClient;
             _configuration = configuration;
         }
+        //[Route("FacebookLogin")]
+        //public IActionResult FacebookLogin()
+        //{
+        //    var properties = new AuthenticationProperties { RedirectUri = "/" };
+        //    return Challenge(properties);
+        //}
+
+       // [Route("facebooklogin")]
+        public IActionResult FacebookLogin()
+        {
+            var properties = new AuthenticationProperties { RedirectUri = Url.Action("FacebookResponse") };
+            return Challenge(properties, FacebookDefaults.AuthenticationScheme);
+        }
+
+        //[Route("facebook-response")]
+        public async Task<IActionResult> FacebookResponse()
+        {
+            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            var claims = result.Principal.Identities
+                .FirstOrDefault().Claims.Select(claim => new
+                {
+                    claim.Issuer,
+                    claim.OriginalIssuer,
+                    claim.Type,
+                    claim.Value,
+                    claim.Properties
+                });
+
+            // return Json(claims);
+            return RedirectToAction("Index", "Cart");
+        }
+
 
         [HttpGet]
         public IActionResult Login()
@@ -60,7 +96,7 @@ namespace eShopSolution.WebApp.Controllers
                         userPrincipal,
                         authProperties);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "Cart");
         }
 
         [HttpPost]

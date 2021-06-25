@@ -65,6 +65,20 @@ namespace onlineShopSolution.Application.Contacts
             }).ToListAsync();
         }
 
+        public async Task<FeedbackViewModel> GetDetail(int id)
+        {
+                var feedback = await _context.Contacts.FindAsync(id);
+                var feedbackViewModel = new FeedbackViewModel()
+                {
+                    Id = feedback.Id,
+                    Name = feedback.Name,
+                    Email = feedback.Email,
+                    PhoneNumber = feedback.PhoneNumber,
+                    Message = feedback.Message,
+                };
+                return feedbackViewModel;
+        }
+
         public async Task<PagedResult<FeedbackViewModel>> GetPaging(FeedbackPagingRequest request)
         {
             var query = from c in _context.Contacts
@@ -84,7 +98,7 @@ namespace onlineShopSolution.Application.Contacts
                     Name = x.Name,
                    Email=x.Email,
                    PhoneNumber=x.PhoneNumber,
-                   Message=x.PhoneNumber
+                   Message=x.Message
                 }).ToListAsync();
 
             //4. Select and projection
@@ -97,5 +111,8 @@ namespace onlineShopSolution.Application.Contacts
             };
             return pagedResult;
         }
+
+
+
     }
 }

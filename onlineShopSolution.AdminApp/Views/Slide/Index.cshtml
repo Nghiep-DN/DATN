@@ -1,0 +1,192 @@
+﻿@{
+    ViewData["Title"] = " Quản lý slide";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    img {
+        width: 100px;
+        height: 100px;
+    }
+</style>
+<link href="/custom/customCss/category.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+@section Scripts{
+    <script src="/custom/customJs/commonTable.js"></script>
+    <script src="/custom/customJs/pagination/jquery.twbsPagination.min.js"></script>
+    <script src="/custom/customJs/mustache/mustache.min.js"></script>
+    <script src="/plugins/jquery-validation/jquery.validate.min.js"></script>
+
+    <script src="/custom/customJs/slide/index.js"></script>
+    <script src="/plugins/sweetalert2/sweetalert2.all.js"></script>
+    <script src="/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Quản lý slide</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Quản lý silde</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            @*<input id="btnAddNew" type="button" class="btn btn-outline-success"  value="Tạo mới" />*@
+                            <a class="btn btn-outline-success" asp-controller="Slide" asp-action="Create">Thêm mới</a>
+
+                        </div>
+
+                        <div class="card-body">
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+
+                                        <th class="sort_col_table" scope="col">ID</th>
+                                        <th class="sort_col_table" scope="col">
+                                            Tên
+                                            <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
+                                        </th>
+                                        <th class="sort_col_table" scope="col">
+                                            Mô tả
+                                            <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
+                                        </th>
+
+                                        <th class="sort_col_table" scope="col">
+                                            Ảnh
+                                            <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
+                                        </th>
+                                        <th class="sort_col_table" scope="col">
+                                            Thứ tự
+                                            <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
+                                        </th>
+
+                                        <th class="sort_col_table" scope="col">
+                                            Hành động
+                                            <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th class="search_col_table"></th>
+                                        <th class="search_col_table">
+                                            <input type="text" name="" id="myInputName" onkeyup="myFunctionSearchName()">
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                        </th>
+                                        <th class="search_col_table">
+                                            <input type="text" name="" id="myInputName" onkeyup="myFunctionSearchName()">
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                        </th>
+                                        <th class="search_col_table">
+                                            <input type="text" name="" id="myInputSeoAlias" onkeyup="myFunctionSearchSeoAlias()">
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                        </th>
+                                        <th class="search_col_table">
+                                            <input type="text" name="" id="myInputSeoDescription" onkeyup="myFunctionSearchSeoDescription()">
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                        </th>
+                                        <th class="search_col_table">
+                                            <input type="text" name="" id="myInputSeoTitle" onkeyup="myFunctionSearchSeoTitle()">
+                                            <i class="fa fa-search" aria-hidden="true"></i>
+                                        </th>
+
+                                    </tr>
+                                </thead>
+
+
+                                <tbody id="tblData">
+                                </tbody>
+                            </table>
+                            <br />
+                            <div id="pagination" class="pagination"></div>
+                        </div>
+
+
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<script id="data-template" type="x-tmpl-mustache">
+                 <tr>
+
+                     <td>{{ID}}</td>
+                     <td>{{Name}}</td>
+                     <td>{{Description}}</td>
+                     <td> <img src="{{Image}}"/> </td>
+                     <td>{{SortOrder}}</td>
+                     <td>
+                         <button class="btn btn-outline-info btnDetail" data-id="{{ID}}">Chi tiết </button>
+                         <button class="btn btn-outline-danger btnDelete" data-id="{{ID}}">Xóa </button>
+                     </td>
+                </tr>
+</script>
+
+
+<!-- Modal -->
+<div class="modal fade" id="SlideModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Quản lý slide</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form role="form" class="form-group" id="frmValid">
+                <div class="modal-body">
+                    <input type="hidden" value="0" id="hidID">
+                    <div class="row">
+                        <div class="col-md-3">Tên:</div>
+                        <div class="col-md-9"><input id="txtName" name="txtName" required type="text" class="form-control input-modal" value="" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">Thứ tự:</div>
+                        <div class="col-md-9"><input id="txtSortOrder" type="text" class="form-control input-modal" value="" /></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3">Ảnh:</div>
+                        <div class="col-md-9">
+                            <input type="file" id="txtImage" name="txtImage" class="form-control" />
+                            <input type="text" style="display:none" id="hidImage" />
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="col-md-3">Mô tả:</div>
+                        <div class="col-md-9">
+                            <textarea class="form-control input-modal" id="txtDescription" rows="4"></textarea>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="modal-footer">
+                <button type="submit" id="btnSave" class="btn btn-outline-success">Lưu</button>
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Thoát</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
@@ -16,6 +17,7 @@ using onlineShopSolution.ViewModel.System.Users;
 
 namespace onlineShopSolution.AdminApp.Controllers
 {
+
     public class LoginController : Controller
     {
         private readonly IUserApiClient _userApiClient;
@@ -39,7 +41,7 @@ namespace onlineShopSolution.AdminApp.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(ModelState);
+                return View(request);
             }
             var result = await _userApiClient.Authenticate(request);
             if (result.ResultObj == null)

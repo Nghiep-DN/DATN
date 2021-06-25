@@ -304,3 +304,8 @@ E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.WebApp\bin\Deb
 E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Contact.cshtml.g.cs
 E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Checkout\Checkout.cshtml.g.cs
 E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Product\_relatedProductPartial.cshtml.g.cs
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\News.cshtml.g.cs
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.WebApp\bin\Debug\netcoreapp3.1\MailKit.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.WebApp\bin\Debug\netcoreapp3.1\MimeKit.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.WebApp\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.WebApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.Facebook.dll

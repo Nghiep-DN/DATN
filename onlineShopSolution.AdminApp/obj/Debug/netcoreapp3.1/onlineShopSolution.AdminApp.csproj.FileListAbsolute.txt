@@ -1286,3 +1286,9 @@ E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.AdminApp\bin\D
 E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.AdminApp\bin\Debug\netcoreapp3.1\onlineShopSolution.AdminApp.Views.pdb
 E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.AdminApp\obj\Debug\netcoreapp3.1\onlineShopSolution.AdminApp.genruntimeconfig.cache
 E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Slide\Index.cshtml.g.cs
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Slide\Create.cshtml.g.cs
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.AdminApp\obj\Debug\netcoreapp3.1\Razor\Views\Order\Index.cshtml.g.cs
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.AdminApp\bin\Debug\netcoreapp3.1\MailKit.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.AdminApp\bin\Debug\netcoreapp3.1\MimeKit.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.AdminApp\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll

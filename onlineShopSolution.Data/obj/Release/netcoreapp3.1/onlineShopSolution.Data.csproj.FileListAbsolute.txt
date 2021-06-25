@@ -1,0 +1,12 @@
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Data\bin\Release\netcoreapp3.1\onlineShopSolution.Data.deps.json
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Data\bin\Release\netcoreapp3.1\onlineShopSolution.Data.runtimeconfig.json
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Data\bin\Release\netcoreapp3.1\onlineShopSolution.Data.runtimeconfig.dev.json
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Data\bin\Release\netcoreapp3.1\onlineShopSolution.Data.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Data\bin\Release\netcoreapp3.1\onlineShopSolution.Data.pdb
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Data\obj\Release\netcoreapp3.1\onlineShopSolution.Data.csprojAssemblyReference.cache
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Data\obj\Release\netcoreapp3.1\onlineShopSolution.Data.AssemblyInfoInputs.cache
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Data\obj\Release\netcoreapp3.1\onlineShopSolution.Data.AssemblyInfo.cs
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Data\obj\Release\netcoreapp3.1\onlineShopSolution.Data.csproj.CoreCompileInputs.cache
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Data\obj\Release\netcoreapp3.1\onlineShopSolution.Data.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Data\obj\Release\netcoreapp3.1\onlineShopSolution.Data.pdb
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Data\obj\Release\netcoreapp3.1\onlineShopSolution.Data.genruntimeconfig.cache

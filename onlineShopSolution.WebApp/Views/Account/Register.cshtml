@@ -3,35 +3,40 @@
     ViewData["Title"] = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    sup{
+        color:red;
+    }
+</style>
 
 <ul class="breadcrumb">
-    <li><a href="/">Home</a> <span class="divider">/</span></li>
-    <li class="active">Registration</li>
+    <li><a href="/">Trang chủ</a> <span class="divider">/</span></li>
+    <li class="active">Đăng ký</li>
 </ul>
-<h3> Registration</h3>
+<h3> Đăng ký tài khoản</h3>
 <div class="well">
     <form asp-action="Register" asp-controller="Account" method="post" class="form-horizontal">
-        <h4>Your personal information</h4>
+        <h4>Thông tin cá nhân</h4>
         <div asp-validation-summary="All" class="text-error">
             <button type="button" class="close" data-dismiss="alert">×</button>
         </div>
         <div class="control-group">
-            <label class="control-label" for="inputFname1">First name <sup>*</sup></label>
+            <label class="control-label" for="inputFname1">Tên <sup>*</sup></label>
             <div class="controls">
-                <input type="text" asp-for="FirstName" placeholder="First Name">
+                <input type="text" asp-for="FirstName" placeholder="Vui lòng nhập tên">
                 <span asp-validation-for="FirstName" class="text-error"></span>
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="inputLnam">Last name <sup>*</sup></label>
+            <label class="control-label" for="inputLnam">Họ <sup>*</sup></label>
             <div class="controls">
-                <input type="text" asp-for="LastName" placeholder="Last Name">
+                <input type="text" asp-for="LastName" placeholder="Vui lòng nhập họ">
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="input_email">Date <sup>*</sup></label>
+            <label class="control-label" for="input_email">Ngày sinh <sup>*</sup></label>
             <div class="controls">
-                <input type="date" asp-for="DOB" placeholder="Email">
+                <input type="date" asp-for="DOB" placeholder="Vui lòng nhập ngày sinh">
             </div>
         </div>
         <div class="control-group">
@@ -42,38 +47,38 @@
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="inputPassword1">User Name <sup>*</sup></label>
+            <label class="control-label" for="inputPassword1">Tên đăng nhập <sup>*</sup></label>
             <div class="controls">
-                <input type="text" asp-for="UserName" placeholder="User Name">
+                <input type="text" asp-for="UserName" placeholder="Vui lòng nhập tên đăng nhập">
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="inputPassword1">Password <sup>*</sup></label>
+            <label class="control-label" for="inputPassword1">Mật khẩu <sup>*</sup></label>
             <div class="controls">
-                <input type="password" asp-for="Password" placeholder="Password">
+                <input type="password" asp-for="Password" placeholder="Vui lòng nhập mật khẩu">
             </div>
         </div>
         <div class="control-group">
-            <label class="control-label" for="inputPassword1">Confirm Password <sup>*</sup></label>
+            <label class="control-label" for="inputPassword1">Xác nhận lại mật khẩu<sup>*</sup></label>
             <div class="controls">
-                <input type="password" asp-for="ConfirmPassword" placeholder="Confirm Password">
+                <input type="password" asp-for="ConfirmPassword" placeholder="Vui lòng xác nhận mật khẩu">
             </div>
         </div>
 
         <div class="control-group">
-            <label class="control-label" for="mobile">Mobile Phone </label>
+            <label class="control-label" for="mobile">Số điện thoại </label>
             <div class="controls">
-                <input type="text" asp-for="PhoneNumber" placeholder="Mobile Phone" />
+                <input type="text" asp-for="PhoneNumber" placeholder="Vui lòng nhập số điện thoại" />
             </div>
         </div>
 
-        <p><sup>*</sup>Required field	</p>
+        <p><sup>*</sup> Thông tin bắt buộc	</p>
 
         <div class="control-group">
             <div class="controls">
                 <input type="hidden" name="email_create" value="1">
                 <input type="hidden" name="is_new_customer" value="1">
-                <input class="btn btn-large btn-success" type="submit" value="Register" />
+                <input class="btn btn-large btn-success" type="submit" value="Đăng ký" />
             </div>
         </div>
     </form>

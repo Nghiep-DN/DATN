@@ -6,7 +6,8 @@ namespace onlineShopSolution.Data.Enums
 {
     public enum TransactionStatus
     {
-        Success,
-        False
+        
+        False,
+        Success
     }
 }

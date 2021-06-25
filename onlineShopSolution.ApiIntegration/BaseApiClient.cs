@@ -46,6 +46,7 @@ namespace onlineShopSolution.ApiIntegration
                 return myDeserializedObjList;
             }
             return JsonConvert.DeserializeObject<TResponse>(body);
+
         }
 
         public async Task<List<T>> GetListAsync<T>(string url, bool requiredLogin = false)

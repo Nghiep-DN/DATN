@@ -11,6 +11,7 @@ namespace onlineShopSolution.Application.Contacts
     {
         Task<bool> CreateFeedback(FeedbackRequest request);
         Task<List<FeedbackViewModel>> GetAll();
+        Task<FeedbackViewModel> GetDetail(int id);
         Task<PagedResult<FeedbackViewModel>> GetPaging(FeedbackPagingRequest request);
         Task<int> DeleteFeedback(int id);
     }

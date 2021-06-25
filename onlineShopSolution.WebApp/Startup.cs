@@ -7,6 +7,7 @@ using FluentValidation;
 using FluentValidation.AspNetCore;
 using LazZiya.ExpressLocalization;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -16,14 +17,17 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using onlineShopSolution.ApiIntegration;
+using onlineShopSolution.ViewModel.SendMail;
 using onlineShopSolution.ViewModel.System.Users;
 using onlineShopSolution.WebApp.LocalizationResources;
+using onlineShopSolution.WebApp.Models;
 
 namespace onlineShopSolution.WebApp
 {
     // cài đặt middleware, request pipeline
     public class Startup
     {
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -37,7 +41,7 @@ namespace onlineShopSolution.WebApp
             services.AddHttpClient();
 
             var cultures = new[]
-           {
+            {
                 new CultureInfo("en"),
                 new CultureInfo("vi"),
             };
@@ -79,6 +83,46 @@ namespace onlineShopSolution.WebApp
                  options.AccessDeniedPath = "/User/Forbidden/";
              });
 
+            //facebook
+        //    services.AddAuthentication(options =>
+        //    {
+        //        options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        //    })
+        //.AddCookie(options =>
+        //{
+        //    options.LoginPath = "/account/facebook-login"; // Must be lowercase
+        //})
+        //.AddFacebook(options =>
+        //{
+        //    options.AppId = "309864987298931";
+        //    options.AppSecret = "754e86a22fb9b2b70dc58099584dc093";
+        //});
+
+            //fb2
+          
+            //services.AddAuthentication(options=> {
+            //    options.DefaultChallengeScheme = FacebookDefaults.AuthenticationScheme;
+            //    options.DefaultSignInScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            //    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+            //}).AddFacebook(options =>
+            //{
+            //    options.AppId = "309864987298931";
+            //    options.AppSecret = "754e86a22fb9b2b70dc58099584dc093";
+            //    //options.AccessDeniedPath = "/account/facebook-login";
+            //}).AddCookie(options =>
+            //{
+            //   options.LoginPath = "vi/account/FacebookLogin"; // Must be lowercase
+            //});
+
+            services.AddAuthentication().AddFacebook(facebookOptions =>
+            {
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            });
+
+
+
+
             services.AddControllersWithViews().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<LoginRequestValidator>());
             services.AddSession(options =>
             {
@@ -91,10 +135,13 @@ namespace onlineShopSolution.WebApp
             services.AddTransient<IUserApiClient, UserApiClient>();
             services.AddTransient<IOrderApiClient, OrderApiClient>();
             services.AddTransient<IContactApiClient, ContactApiClient>();
-                             //services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator>();
 
+            //services.AddTransient<IValidator<LoginRequest>, LoginRequestValidator>();
 
-
+            services.AddTransient<ISendMailApiClient, SendMailApiClient>();
+            services.AddOptions();                                         // Kích hoạt Options
+            var mailsettings = Configuration.GetSection("MailSettings");  // đọc config
+            services.Configure<MailSettings>(mailsettings);                // đăng ký để Inject
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -163,6 +210,23 @@ namespace onlineShopSolution.WebApp
                 endpoints.MapControllerRoute(
                      name: "default",
                      pattern: "{culture=vi}/{controller=Home}/{action=Index}/{id?}");
+
+                //endpoints.MapGet("/sendmail", async context => {
+
+                //    // Lấy dịch vụ sendmailservice
+                //    var sendmailservice = context.RequestServices.GetService<ISendMailApiClient>();
+
+                //    MailContent content = new MailContent
+                //    {
+                //        To = "nghiepdo.dev@gmail.com",
+                //        Subject = "Đơn đặt hàng mới",
+                //        Body = "<p><strong>Đơn đặt hàng mới</strong></p>"
+                //    };
+
+                //    await sendmailservice.SendMail(content);
+                //    await context.Response.WriteAsync("Send mail");
+                //});
+
             });
         }
     }

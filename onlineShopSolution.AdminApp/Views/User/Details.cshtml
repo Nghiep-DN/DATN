@@ -1,7 +1,7 @@
 ﻿@model onlineShopSolution.ViewModel.System.Users.UserViewModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Xem chi tiết";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -12,12 +12,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>User Details </h1>
+                            <h1> Chi tiết </h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">DetailsUser</li>
+                                <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                                <li class="breadcrumb-item active">Chi tiết</li>
                             </ol>
                         </div>
                     </div>
@@ -38,7 +38,7 @@
                                     <br />*@
                                     <br />
                                     <p>
-                                        <a class="btn btn-success" asp-action="Index">Back to List</a>
+                                        <a class="btn btn-success" asp-action="Index"> <i class="right fas fa-angle-left"></i> Quay lại</a>
                                     </p>
                                 </div>
                                 <!-- /.card-header -->
@@ -91,8 +91,8 @@
 
 
                                         <div>
-                                            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-                                            @Html.ActionLink("Delete", "Delete", new { id = Model.Id })
+                                            @Html.ActionLink("Sửa", "Edit", new { id = Model.Id }) |
+                                            @Html.ActionLink("Xóa", "Delete", new { id = Model.Id })
                                             @*<a class="btn btn-primary" asp-action="Edit">Edit</a>
                                             <a class="btn btn-danger" asp-action="Delete" asp-id="Id">Delete</a>*@
                                         </div>

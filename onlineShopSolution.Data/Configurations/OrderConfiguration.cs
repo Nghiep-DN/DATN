@@ -27,8 +27,8 @@ namespace onlineShopSolution.Data.Configurations
             builder.Property(x => x.ShipAddress).IsRequired().HasMaxLength(200);
 
 
-            builder.Property(x => x.ShipName).IsRequired().HasMaxLength(200).IsUnicode(false);
-
+            builder.Property(x => x.ShipName).IsRequired().HasMaxLength(200);
+            //IsUnicode(false) tieng viet nvarchar
 
             builder.Property(x => x.ShipPhoneNumber).IsRequired().HasMaxLength(200);
 

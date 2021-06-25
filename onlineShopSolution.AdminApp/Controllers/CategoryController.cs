@@ -19,15 +19,25 @@ namespace onlineShopSolution.AdminApp.Controllers
             _categoryApiClient = categoryApiClient;
         }
 
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
+
         public async Task<IActionResult> Index()
         {
             var languageId = HttpContext.Session.GetString(SystemConstants.AppSettings.DefaultLanguageId);
-            var request = new GetManageCategoryPagingRequest()
-            {
-                LanguageId = languageId
-            };
+            //var request = new GetManageCategoryPagingRequest()
+            //{
+            //    LanguageId = languageId,
+            //    Keyword=keyword,
+            //    pageIndex=pageIndex,
+            //    pageSize=pageSize
+
+            //};
             //var data = await _categoryApiClient.GetPagings(request);
             var categories = await _categoryApiClient.GetAll(languageId);
+            //return Json(new {data=categories,status=true });
             return View(categories);
         }
         [HttpPost]

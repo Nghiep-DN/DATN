@@ -35,12 +35,22 @@ namespace onlineShopSolution.Application.System.Users
         }
         public async Task<ApiResult<string>> Authencate(LoginRequest request)
         {
+            if (request.UserName == null)
+            {
+                return new ApiErrorResult<string>("Vui lòng nhập tài khoản.");
+            }
+            if (request.Password == null)
+            {
+                return new ApiErrorResult<string>("Vui lòng nhập mật khẩu.");
+            }
             var user = await _userManager.FindByNameAsync(request.UserName);
-            if (user == null) return new ApiErrorResult<string>("User already exist.");
+         
+            if (user == null) return new ApiErrorResult<string>("Thông tin tài khoản hoặc mật khẩu không chính xác.");
+          
             var result = await _signInManager.PasswordSignInAsync(user, request.Password, request.RememberMe, true);
             if (!result.Succeeded)
             {
-                return new ApiErrorResult<string>("Login unsuccessfully.");
+                return new ApiErrorResult<string>("Đăng nhập không thành công.");
             }
             
             var roles = await _userManager.GetRolesAsync(user);

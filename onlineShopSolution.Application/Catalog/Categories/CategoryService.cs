@@ -8,6 +8,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using onlineShopSolution.Utilities.Constants;
 using onlineShopSolution.Utilities;
+using onlineShopSolution.ViewModel.Common;
 
 namespace onlineShopSolution.Application.Catalog.Categories
 {
@@ -131,5 +132,46 @@ namespace onlineShopSolution.Application.Catalog.Categories
              
             return await _context.SaveChangesAsync(); 
         }
+        public async Task<PagedResult<CategoryViewModel>> GetPaging(GetManageCategoryPagingRequest request)
+        {
+
+            var query = from c in _context.Categories
+                        join ct in _context.CategoryTranslations on c.Id equals ct.CategoryId
+                        where ct.LanguageId ==request.LanguageId
+                        select new { c, ct };
+
+            //2. filter
+            if (!string.IsNullOrEmpty(request.Keyword))
+                query = query.Where(x => x.ct.Name.Contains(request.Keyword));
+
+
+            //3. Paging
+            int totalRow = await query.CountAsync();
+
+            var data = await query.Skip((request.pageIndex - 1) * request.pageSize)
+                .Take(request.pageSize)
+                .Select(x => new CategoryViewModel()
+                {
+                    Id = x.c.Id,
+                    Name = x.ct.Name,
+                    LanguageId = x.ct.LanguageId,
+                    SeoAlias = x.ct.SeoAlias,
+                    SeoDescription = x.ct.SeoDescription,
+                    SeoTitle = x.ct.SeoTitle,
+                  
+                }).ToListAsync();
+
+            //4. Select and projection
+            var pagedResult = new PagedResult<CategoryViewModel>()
+            {
+                TotalRecords = totalRow,
+                PageSize = request.pageSize,
+                PageIndex = request.pageIndex,
+                Items = data
+            };
+            return pagedResult;
+        }
+
+
     }
 }

@@ -2,14 +2,15 @@
     ViewData["Title"] = "Danh sách mặt hàng";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<link href="~/custom/customCss/category.css" rel="stylesheet" />
+<link href="/custom/customCss/category.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @section Scripts{
-    <script src="~/custom/customJs/category/document.js"></script>
-    <script src="~/custom/customJs/pagination/jquery.twbsPagination.min.js"></script>
-    <script src="~/custom/customJs/category/Index.js"></script>
-    <script src="~/plugins/sweetalert2/sweetalert2.all.js"></script>
-    <script src="~/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+    <script src="/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="/custom/customJs/commonTable.js"></script>
+    <script src="/custom/customJs/pagination/jquery.twbsPagination.min.js"></script>
+    <script src="/custom/customJs/category/Index.js"></script>
+    <script src="/plugins/sweetalert2/sweetalert2.all.js"></script>
+    <script src="/plugins/sweetalert2/sweetalert2.all.min.js"></script>
 }
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -18,12 +19,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Categories Tables</h1>
+                    <h1>Danh mục sản phẩm</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">CategoriesTables</li>
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Danh mục</li>
                     </ol>
                 </div>
             </div>
@@ -36,95 +37,174 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <input id="btnAddNew" type="button" class="btn btn-primary" value="New Category" />
-                            <input id="btnEdit" type="button" class="btn btn-outline-warning" value="Edit Category" />
-                            <input id="btnDelete" type="button" class="btn btn-outline-danger" value="Delete Category" />
+                            <input id="btnAddNew" type="button" class="btn btn-primary" value="Tạo mới" />
+                            <input id="btnEdit" type="button" class="btn btn-outline-warning" value="Sửa" />
+                            <input id="btnDelete" type="button" class="btn btn-outline-danger" value="Xóa" />
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <!--<table id="tblcategory" class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th><input type="checkbox" class="i-checks" id="checkAll"></th>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Seo Alias</th>
-                                    <th>Seo Description </th>
-                                    <th>Seo Title</th>
-                                    <th>Show On Home</th>-->
-                            @*<th>Action</th>*@
-                            <!--</tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                                <tfoot></tfoot>
-
-                            </table>-->
 
 
 
-                            <table class="table table-hover" id="tblcategory">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">
-                                            <input class="i-checks" id="checkAll" type="checkbox" onclick="javascript:checkAll(this)">
-                                        </th>
-                                        <th class="sort_col_table" scope="col">ID</th>
-                                        <th class="sort_col_table" scope="col">
-                                            Name
-                                            <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
-                                        </th>
-                                        <th class="sort_col_table" scope="col">
-                                            Seo Alias
-                                            <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
-                                        </th>
-                                      
-                                        <th class="sort_col_table" scope="col">
-                                            Seo Description
-                                            <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
-                                        </th>
-                                        <th class="sort_col_table" scope="col">
-                                            Seo Title
-                                            <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <th class="search_col_table"></th>
-                                        <th class="search_col_table"></th>
-                                        <th class="search_col_table">
-                                            <input type="text" name="" id="myInputFile" onkeyup="myFunctionSearchFileTable()">
-                                            <i class="fa fa-search" aria-hidden="true"></i>
-                                        </th>
-                                        <th class="search_col_table">
-                                            <input type="text" name="" id="myInputTime" onkeyup="myFunctionSearchTimeTable()">
-                                            <i class="fa fa-search" aria-hidden="true"></i>
-                                        </th>
-                                        <th class="search_col_table">
-                                            <input type="text" name="" id="myInputFile" onkeyup="myFunctionSearchFileTable()">
-                                            <i class="fa fa-search" aria-hidden="true"></i>
-                                        </th>
-                                        <th class="search_col_table">
-                                            <input type="text" name="" id="myInputFile" onkeyup="myFunctionSearchFileTable()">
-                                            <i class="fa fa-search" aria-hidden="true"></i>
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                                <tfoot></tfoot>
-                            </table>
+
+
+                            <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6">
+                                        <div class="dt-buttons btn-group flex-wrap">
+                                            <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Copy</span></button>
+                                            <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>CSV</span></button>
+                                            <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>Excel</span></button>
+                                            <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0" aria-controls="example1" type="button"><span>PDF</span></button>
+                                            <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1" type="button"><span>Print</span></button>
+                                            <div class="btn-group">
+                                                <button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis" tabindex="0" aria-controls="example1" type="button" aria-haspopup="true" aria-expanded="false"><span>Column visibility</span></button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <table id="tblcategory" class="table table-bordered table-hover table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
+
+
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">
+                                                        <input class="i-checks" id="checkAll" type="checkbox" onclick="javascript:checkAll(this)">
+                                                    </th>
+                                                    <th class="sort_col_table" scope="col">ID</th>
+                                                    <th class="sort_col_table" scope="col">
+                                                        Tên
+                                                        <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
+                                                    </th>
+                                                    <th class="sort_col_table" scope="col">
+                                                        Seo Alias
+                                                        <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
+                                                    </th>
+
+                                                    <th class="sort_col_table" scope="col">
+                                                        Seo Description
+                                                        <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
+                                                    </th>
+                                                    <th class="sort_col_table" scope="col">
+                                                        Seo Title
+                                                        <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="search_col_table"></th>
+                                                    <th class="search_col_table"></th>
+                                                    <th class="search_col_table">
+                                                        <input type="text" name="" id="myInputName" onkeyup="myFunctionSearchName()">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </th>
+                                                    <th class="search_col_table">
+                                                        <input type="text" name="" id="myInputSeoAlias" onkeyup="myFunctionSearchSeoAlias()">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </th>
+                                                    <th class="search_col_table">
+                                                        <input type="text" name="" id="myInputSeoDescription" onkeyup="myFunctionSearchSeoDescription()">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </th>
+                                                    <th class="search_col_table">
+                                                        <input type="text" name="" id="myInputSeoTitle" onkeyup="myFunctionSearchSeoTitle()">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+                                            </tbody>
+                                        </table>
+                                    </div>
 
 
 
-                            <div id="pagination" class="pagination"></div>
+                                    <!--<table id="tblcategory" class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th><input type="checkbox" class="i-checks" id="checkAll"></th>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Seo Alias</th>
+                                            <th>Seo Description </th>
+                                            <th>Seo Title</th>
+                                            <th>Show On Home</th>-->
+                                    @*<th>Action</th>*@
+                                    <!--</tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                        <tfoot></tfoot>
+
+                                    </table>-->
+                                    @*<table class="table table-hover" id="tblcategory">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">
+                                                        <input class="i-checks" id="checkAll" type="checkbox" onclick="javascript:checkAll(this)">
+                                                    </th>
+                                                    <th class="sort_col_table" scope="col">ID</th>
+                                                    <th class="sort_col_table" scope="col">
+                                                        Tên
+                                                        <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
+                                                    </th>
+                                                    <th class="sort_col_table" scope="col">
+                                                        Seo Alias
+                                                        <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
+                                                    </th>
+
+                                                    <th class="sort_col_table" scope="col">
+                                                        Seo Description
+                                                        <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
+                                                    </th>
+                                                    <th class="sort_col_table" scope="col">
+                                                        Seo Title
+                                                        <i class="fa fa-exchange fa-rotate-90" aria-hidden="true"></i>
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <th class="search_col_table"></th>
+                                                    <th class="search_col_table"></th>
+                                                    <th class="search_col_table">
+                                                        <input type="text" name="" id="myInputName" onkeyup="myFunctionSearchName()">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </th>
+                                                    <th class="search_col_table">
+                                                        <input type="text" name="" id="myInputSeoAlias" onkeyup="myFunctionSearchSeoAlias()">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </th>
+                                                    <th class="search_col_table">
+                                                        <input type="text" name="" id="myInputSeoDescription" onkeyup="myFunctionSearchSeoDescription()">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </th>
+                                                    <th class="search_col_table">
+                                                        <input type="text" name="" id="myInputSeoTitle" onkeyup="myFunctionSearchSeoTitle()">
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            </tbody>
+                                            <tfoot></tfoot>
+                                        </table>*@
+
+
+
+
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+
                         </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
-
                 </div>
+
             </div>
         </div>
+
     </section>
 
 </div>
@@ -137,7 +217,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Category</h5>
+                <h5 class="modal-title" id="exampleModalLabel">Danh mục</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -146,8 +226,8 @@
                 <div class="modal-body">
                     <input type="hidden" value="0" id="hidID">
                     <div class="row">
-                        <div class="col-md-3">Name:</div>
-                        <div class="col-md-9"><input id="txtName" name="txtName" required type="text" class="form-control input-modal" value="" /></div>
+                        <div class="col-md-3">Tên danh mục:</div>
+                        <div class="col-md-9"><input id="txtName" name="txtName" type="text" class="form-control input-modal" value="" /></div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">Seo Alias:</div>
@@ -156,7 +236,7 @@
 
                     <div class="row">
                         <div class="col-md-3">Seo Description:</div>
-                        <div class="col-md-9"><input id="txtSeoDescription" type="text" required class="form-control input-modal" value="" /></div>
+                        <div class="col-md-9"><input id="txtSeoDescription" name="txtSeoDescription" type="text" class="form-control input-modal" value="" /></div>
                     </div>
                     <div class="row">
                         <div class="col-md-3">Seo Title:</div>
@@ -165,8 +245,8 @@
                 </div>
             </form>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" id="btnSave" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Thoát</button>
+                <button type="button" id="btnSave" class="btn btn-primary">Lưu</button>
             </div>
         </div>
     </div>

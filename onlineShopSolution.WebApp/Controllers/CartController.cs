@@ -101,6 +101,11 @@ namespace onlineShopSolution.WebApp.Controllers
             HttpContext.Session.SetString(SystemConstants.CartSession, JsonConvert.SerializeObject(currentCart)); //chuyen qua string
             return Ok(currentCart);
         }
+        public IActionResult CheckOut()
+        {
+            var model = GetCheckoutViewModel();
+            return View(model) ;
+        }
 
         //public IActionResult CheckOut()
         //{
@@ -148,21 +153,21 @@ namespace onlineShopSolution.WebApp.Controllers
 
         //}
 
-        //private CheckoutViewModel GetCheckoutViewModel()
-        //{
-        //    var session = HttpContext.Session.GetString(SystemConstants.CartSession);
-        //    List<CartItemViewModel> currentCart = new List<CartItemViewModel>();
-        //    if (session != null)
-        //    {
-        //        currentCart = JsonConvert.DeserializeObject<List<CartItemViewModel>>(session);
-        //    }
-        //    var checkoutVm = new CheckoutViewModel()
-        //    {
-        //        CartItems = currentCart,
-        //        CheckoutModel = new CheckoutRequest()
-        //    };
-        //    return checkoutVm;
-        //}
+        private CheckoutViewModel GetCheckoutViewModel()
+        {
+            var session = HttpContext.Session.GetString(SystemConstants.CartSession);
+            List<CartItemViewModel> currentCart = new List<CartItemViewModel>();
+            if (session != null)
+            {
+                currentCart = JsonConvert.DeserializeObject<List<CartItemViewModel>>(session);
+            }
+            var checkoutVm = new CheckoutViewModel()
+            {
+                CartItems = currentCart,
+                CheckoutModel = new CheckoutRequest()
+            };
+            return checkoutVm;
+        }
     }
 
 }

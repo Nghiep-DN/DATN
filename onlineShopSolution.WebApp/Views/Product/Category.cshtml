@@ -10,23 +10,20 @@
 @inject Microsoft.Extensions.Configuration.IConfiguration Configuration;
 @inject LazZiya.ExpressLocalization.ISharedCultureLocalizer _loc;
 <ul class="breadcrumb">
-    <li><a href="/">Home</a> <span class="divider">/</span></li>
-    <li class="active">Products Name</li>
+    <li><a href="/"><localize>Home</localize></a> <span class="divider">/</span></li>
+    <li class="active"><localize>Category</localize></li>
 </ul>
 <h3> @Model.Category.Name <small class="pull-right"> 40 <localize>available products</localize> </small></h3>
 <hr class="soft" />
-<p>
-    Mô tả của ứng dụng (hard)
-</p>
+
 <hr class="soft" />
 <form class="form-horizontal span6">
     <div class="control-group">
         <label class="control-label alignL"><localize>Sort By</localize> </label>
         <select>
-            <option>Product name A - Z</option>
-            <option>Product name Z - A</option>
-            <option>Product Stoke</option>
-            <option>Price Lowest first</option>
+            <option><localize>Product name A - Z</localize></option>
+            <option><localize>Product name Z - A</localize></option>
+           
         </select>
     </div>
 </form>
@@ -60,7 +57,7 @@
                 <form class="form-horizontal qtyFrm">
                     <h3> @item.Price.ToString("C", culture)</h3>
                     <label class="checkbox">
-                        <input type="checkbox">  Adds product to compair
+                        <input type="checkbox">  <localize>Adds product to compair</localize>
                     </label><br />
 
                     <a href="#" class="btn btn-large btn-primary btn-add-cart" data-id="@item.Id"> <localize>Add to</localize> <i class=" icon-shopping-cart"></i></a>

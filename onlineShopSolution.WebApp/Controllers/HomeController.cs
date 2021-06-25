@@ -125,6 +125,11 @@ namespace onlineShopSolution.WebApp.Controllers
             ModelState.AddModelError("", "Feedback  unsuccessfully.");
             return View(request);
         }
+        public IActionResult News()
+        {
+
+            return View();
+        }
 
     }
 }

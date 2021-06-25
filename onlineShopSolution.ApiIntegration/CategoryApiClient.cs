@@ -75,13 +75,15 @@ namespace onlineShopSolution.ApiIntegration
             return await GetAsync<CategoryViewModel>($"/api/categories/{id}/{languageId}");
         }
 
-        public Task<PagedResult<CategoryViewModel>> GetPagings(GetManageCategoryPagingRequest request)
+        public async Task<PagedResult<CategoryViewModel>> GetPagings(GetManageCategoryPagingRequest request)
         {
-            throw new NotImplementedException();
-            //var dataString = await _httpClient.GetStringAsync(uri, token);
 
-            //var response = JsonConvert.DeserializeObject<RestOutput<CaseDocumentEdit>>(dataString);
-            //return response;
+            var data = await GetAsync<PagedResult<CategoryViewModel>>(
+                 $"/api/categories/paging?pageIndex={request.pageIndex}" +
+                 $"&pageSize={request.pageSize}" +
+                 $"&keyword={request.Keyword}&languageId={request.LanguageId}");
+
+            return data;
         }
 
         public async Task<bool> Update(CategoryViewModel request)

@@ -1,4 +1,5 @@
 ﻿using onlineShopSolution.ViewModel.Catalog.Categories;
+using onlineShopSolution.ViewModel.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,5 +19,6 @@ namespace onlineShopSolution.Application.Catalog.Categories
         Task<int> Create(CategoryCreateRequest request);
         Task<int> Update(CategoryViewModel request);
         Task<int> DeleteCategory(int id);
+        Task<PagedResult<CategoryViewModel>> GetPaging(GetManageCategoryPagingRequest request);
     }
 }

@@ -44,9 +44,19 @@ namespace onlineShopSolution.ApiIntegration
             return JsonConvert.DeserializeObject<ApiErrorResult<bool>>(result);
         }
 
+        public async Task<bool> DeleteFeedback(int id)
+        {
+            return await Delete("/api/contacts/"+id);
+        }
+
         public async Task<List<FeedbackViewModel>> GetAll()
         {
             return await GetAsync<List<FeedbackViewModel>>("/api/contacts/GetAll");
+        }
+
+        public async Task<FeedbackViewModel> GetDetail(int id)
+        {
+            return await GetAsync<FeedbackViewModel>($"/api/contacts/getdetail/{id}");
         }
 
         public async Task<PagedResult<FeedbackViewModel>> GetPaging(FeedbackPagingRequest request)
@@ -55,8 +65,6 @@ namespace onlineShopSolution.ApiIntegration
                 $"&pageSize={request.pageSize}" +
                 $"&keyword={request.Keyword}");
             return data;
-
-
         }
     }
 }

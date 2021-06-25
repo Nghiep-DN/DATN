@@ -175,7 +175,7 @@ namespace onlineShopSolution.Data.Migrations
                         new
                         {
                             Id = new Guid("8d04dce2-969a-435d-bba4-df3f325983dc"),
-                            ConcurrencyStamp = "f7f177cf-f70b-4952-bb8f-932b6c72e14d",
+                            ConcurrencyStamp = "42948367-6cb7-4003-b226-061c1b8b5a43",
                             Description = "Administrator role",
                             Name = "admin",
                             NormalizedName = "admin"
@@ -252,7 +252,7 @@ namespace onlineShopSolution.Data.Migrations
                         {
                             Id = new Guid("69bd714f-9576-45ba-b5b7-f00649be00de"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "60bc604b-11bf-4f4e-84dc-4ecaf233e146",
+                            ConcurrencyStamp = "8835e64c-db4d-49b1-b30e-e3e0f0bbc2c7",
                             DOB = new DateTime(1999, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "nghiepdo.dev@gmail.com",
                             EmailConfirmed = true,
@@ -261,7 +261,7 @@ namespace onlineShopSolution.Data.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "nghiepdo.dev@gmail.com",
                             NormalizedUserName = "admin",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMQoBVbVPvQs9M1iPRRj6lFGqBNE2amapPZZlza9MnzH6M8FWBIAUkpYNNngCGGVEg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGSX2z7eyN2/X4DCqEylT71Hzywv5UWFL5ciPwwRtAO9CSKA+cT7E3cgK2RSQbORcQ==",
                             PhoneNumberConfirmed = false,
                             SecurityStamp = "",
                             TwoFactorEnabled = false,
@@ -319,7 +319,7 @@ namespace onlineShopSolution.Data.Migrations
                     b.Property<int>("Status")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .HasDefaultValue(0);
+                        .HasDefaultValue(1);
 
                     b.HasKey("Id");
 
@@ -331,14 +331,14 @@ namespace onlineShopSolution.Data.Migrations
                             Id = 1,
                             IsShowOnHome = true,
                             SortOrder = 1,
-                            Status = 0
+                            Status = 1
                         },
                         new
                         {
                             Id = 2,
                             IsShowOnHome = true,
                             SortOrder = 2,
-                            Status = 0
+                            Status = 1
                         });
                 });
 
@@ -503,7 +503,7 @@ namespace onlineShopSolution.Data.Migrations
                     b.Property<DateTime>("OrderDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 4, 17, 22, 7, 40, 297, DateTimeKind.Local).AddTicks(2984));
+                        .HasDefaultValue(new DateTime(2021, 6, 2, 20, 39, 10, 173, DateTimeKind.Local).AddTicks(8802));
 
                     b.Property<string>("ShipAddress")
                         .IsRequired()
@@ -519,8 +519,7 @@ namespace onlineShopSolution.Data.Migrations
                     b.Property<string>("ShipName")
                         .IsRequired()
                         .HasMaxLength(200)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(200)");
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("ShipPhoneNumber")
                         .IsRequired()
@@ -598,7 +597,7 @@ namespace onlineShopSolution.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2021, 4, 17, 22, 7, 40, 337, DateTimeKind.Local).AddTicks(8540),
+                            DateCreated = new DateTime(2021, 6, 2, 20, 39, 10, 204, DateTimeKind.Local).AddTicks(9804),
                             OriginalPrice = 150000m,
                             Price = 200000m,
                             Stock = 0,
@@ -817,7 +816,7 @@ namespace onlineShopSolution.Data.Migrations
                             Image = "themes/images/carousel/1.png",
                             Name = "Second Thumbnail label",
                             SortOrder = 1,
-                            Status = 0,
+                            Status = 1,
                             Url = "#"
                         },
                         new
@@ -827,7 +826,7 @@ namespace onlineShopSolution.Data.Migrations
                             Image = "themes/images/carousel/2.png",
                             Name = "Second Thumbnail label",
                             SortOrder = 2,
-                            Status = 0,
+                            Status = 1,
                             Url = "#"
                         },
                         new
@@ -837,7 +836,7 @@ namespace onlineShopSolution.Data.Migrations
                             Image = "themes/images/carousel/3.png",
                             Name = "Second Thumbnail label",
                             SortOrder = 3,
-                            Status = 0,
+                            Status = 1,
                             Url = "#"
                         },
                         new
@@ -847,7 +846,7 @@ namespace onlineShopSolution.Data.Migrations
                             Image = "themes/images/carousel/4.png",
                             Name = "Second Thumbnail label",
                             SortOrder = 4,
-                            Status = 0,
+                            Status = 1,
                             Url = "#"
                         },
                         new
@@ -857,7 +856,7 @@ namespace onlineShopSolution.Data.Migrations
                             Image = "themes/images/carousel/5.png",
                             Name = "Second Thumbnail label",
                             SortOrder = 5,
-                            Status = 0,
+                            Status = 1,
                             Url = "#"
                         },
                         new
@@ -867,7 +866,7 @@ namespace onlineShopSolution.Data.Migrations
                             Image = "themes/images/carousel/6.png",
                             Name = "Second Thumbnail label",
                             SortOrder = 6,
-                            Status = 0,
+                            Status = 1,
                             Url = "#"
                         });
                 });

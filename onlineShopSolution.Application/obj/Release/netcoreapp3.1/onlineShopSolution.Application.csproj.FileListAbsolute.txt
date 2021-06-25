@@ -1,0 +1,16 @@
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\bin\Release\netcoreapp3.1\onlineShopSolution.Application.deps.json
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\bin\Release\netcoreapp3.1\onlineShopSolution.Application.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\bin\Release\netcoreapp3.1\onlineShopSolution.Application.pdb
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\bin\Release\netcoreapp3.1\onlineShopSolution.Data.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\bin\Release\netcoreapp3.1\onlineShopSolution.Utilities.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\bin\Release\netcoreapp3.1\onlineShopSolution.ViewModel.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\bin\Release\netcoreapp3.1\onlineShopSolution.Data.pdb
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\bin\Release\netcoreapp3.1\onlineShopSolution.Utilities.pdb
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\bin\Release\netcoreapp3.1\onlineShopSolution.ViewModel.pdb
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\obj\Release\netcoreapp3.1\onlineShopSolution.Application.csprojAssemblyReference.cache
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\obj\Release\netcoreapp3.1\onlineShopSolution.Application.AssemblyInfoInputs.cache
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\obj\Release\netcoreapp3.1\onlineShopSolution.Application.AssemblyInfo.cs
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\obj\Release\netcoreapp3.1\onlineShopSolution.Application.csproj.CoreCompileInputs.cache
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\obj\Release\netcoreapp3.1\onlineShopSolution.Application.csproj.CopyComplete
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\obj\Release\netcoreapp3.1\onlineShopSolution.Application.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.Application\obj\Release\netcoreapp3.1\onlineShopSolution.Application.pdb

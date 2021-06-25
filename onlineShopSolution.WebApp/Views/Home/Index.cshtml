@@ -4,8 +4,8 @@
 
 @{ var culture = CultureInfo.CurrentCulture.Name; }
 @using onlineShopSolution.ViewModel.Catalog.Products;
-@{ ViewData["Title"] = "Home Page"; }
-
+@{ ViewData["Title"] = "Trang chủ"; }
+<link href="/css/phoneCall.css" rel="stylesheet" />
 
 @section slider{
     <div id="carouselBlk">
@@ -17,7 +17,7 @@
                     var slide = Model.Slides[index];
 <div class="item @(index == 0?"active":"")">
     <div class="container">
-        <a href="@slide.Url"><img style="width:100%" src="@slide.Image" alt="@slide.Name" /></a>
+        <a href="@slide.Url"><img style="width:100%" src="@(Configuration["BaseAddress"] + slide.Image)" alt="@slide.Name" /></a>
         <div class="carousel-caption">
             <h4>@slide.Name</h4>
             <p>@slide.Description</p>
@@ -89,7 +89,7 @@
 </div>
 
 
-<h4><localize>Latest Products</localize></h4>
+<!--<h4><localize>Latest Products</localize></h4>
 <ul class="thumbnails">
 
     @foreach (var item in Model.LatestProducts)
@@ -113,7 +113,7 @@
         </div>
     </div>
 </li>
-}
+}-->
 
 
 
@@ -131,10 +131,10 @@
             </div>
         </li>*@
 
-</ul>
+<!--</ul>-->
 
 
-<h4><localize>Test Products</localize></h4>
+<h4><localize>Latest Products</localize></h4>
 <ul class="thumbnails">
 
     @foreach (var item in Model.RelevantProducts.Items)
@@ -160,3 +160,20 @@
 </li>}
 </ul>
 @await Component.InvokeAsync("Pager", Model.RelevantProducts)
+
+<div class="hotline-phone-ring-wrap">
+    <div class="hotline-phone-ring">
+        <div class="hotline-phone-ring-circle"></div>
+        <div class="hotline-phone-ring-circle-fill"></div>
+        <div class="hotline-phone-ring-img-circle">
+            <a href="tel:0855281281" class="pps-btn-img">
+                <img src="https://nguyenhung.net/wp-content/uploads/2019/05/icon-call-nh.png" alt="Gọi điện thoại" width="50">
+            </a>
+        </div>
+    </div>
+    <div class="hotline-bar">
+        <a href="tel:0855281281">
+            <span class="text-hotline">0855.281.281</span>
+        </a>
+    </div>
+</div>

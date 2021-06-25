@@ -22,5 +22,6 @@ namespace onlineShopSolution.WebApp
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
     }
 }

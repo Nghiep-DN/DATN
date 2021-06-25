@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using onlineShopSolution.ApiIntegration;
 using onlineShopSolution.Utilities.Constants;
 using onlineShopSolution.ViewModel.Sales;
+using onlineShopSolution.ViewModel.SendMail;
 using onlineShopSolution.WebApp.Models;
 using System;
 using System.Collections.Generic;
@@ -20,20 +22,20 @@ namespace onlineShopSolution.WebApp.Controllers
         private readonly IOrderApiClient _orderApiClient;
         private readonly IUserApiClient _userApiClient;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public CheckoutController(IProductApiClient productApiClient, IOrderApiClient orderApiClient, IUserApiClient userApiClient, IHttpContextAccessor httpContextAccessor)
+        private readonly ISendMailApiClient _sendMailApiClient;
+        public CheckoutController(IProductApiClient productApiClient, IOrderApiClient orderApiClient, IUserApiClient userApiClient, IHttpContextAccessor httpContextAccessor, ISendMailApiClient sendMailApiClient)
         {
             _productApiClient = productApiClient;
             _orderApiClient = orderApiClient;
             _httpContextAccessor = httpContextAccessor;
             _userApiClient = userApiClient;
+            _sendMailApiClient = sendMailApiClient;
         }
 
         public IActionResult CheckOut()
         {
-
             return View(GetCheckoutViewModel());
         }
-
         [HttpPost]
         public async Task<IActionResult> CheckOut(CheckoutViewModel request)
         {
@@ -66,15 +68,31 @@ namespace onlineShopSolution.WebApp.Controllers
             {
                 var session = HttpContext.Session.GetString(SystemConstants.CartSession);
 
-                await HttpContext.SignOutAsync(
-                     CookieAuthenticationDefaults.AuthenticationScheme);
-                HttpContext.Session.Remove("Token");
-                HttpContext.Session.Remove(session);
-                TempData["SuccessMsg"] = "Order puschased successful";
+                //await HttpContext.SignOutAsync(
+                //     CookieAuthenticationDefaults.AuthenticationScheme);
+                //HttpContext.Session.Remove("Token");
+                //HttpContext.Session.Remove(session);
+               
+
+               
+
+                MailContent content = new MailContent
+                {
+                    To = "esinfarm@gmail.com",
+                    Subject = "Đơn đặt hàng mới",
+                    Body = "<p><strong>Đơn đặt hàng mới</strong></p>",
+                    Name = "<p>"+ checkoutRequest.Name.ToString() + "</p>",
+                    Address = checkoutRequest.Address.ToString(),
+                    PhoneNumber = checkoutRequest.PhoneNumber.ToString(),
+                };
+
+                await _sendMailApiClient.SendMail(content);
+                //await HttpContext.Response.WriteAsync("Send mail success");
+                TempData["SuccessMsg"] = "Cảm ơn! Bạn đã đặt hàng thành công.";
                 return View(model);
                 //return View(checkoutRequest);
             }
-            ModelState.AddModelError("", "Order puschased unsuccessfully.");
+            ModelState.AddModelError("", "Bạn đặt hàng chưa thành công.");
             // return View(request);
             return View(model);
 

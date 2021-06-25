@@ -32,7 +32,7 @@ namespace onlineShopSolution.BackendApi.Controllers
         public async Task<IActionResult> GetPaging([FromQuery] FeedbackPagingRequest request)
         {
             var feedback = await _contactService.GetPaging(request);
-            return Ok(new { status = 200, message = "Success.", data = feedback });
+            return Ok(feedback);
         }
         [HttpDelete("{id}")]
         [Authorize]
@@ -40,6 +40,12 @@ namespace onlineShopSolution.BackendApi.Controllers
         {
             var category = await _contactService.DeleteFeedback(id);
             return Ok(new { status = 200, message = "Success.", dataId = id });
+        }
+        [HttpGet("getDetail/{id}")]
+        public async Task<IActionResult> getDetail(int id)
+        {
+            var feedback = await _contactService.GetDetail(id);
+            return Ok(feedback);
         }
     }
 }

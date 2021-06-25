@@ -1,0 +1,16 @@
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\bin\Release\netcoreapp3.1\onlineShopSolution.ApiIntegration.deps.json
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\bin\Release\netcoreapp3.1\onlineShopSolution.ApiIntegration.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\bin\Release\netcoreapp3.1\onlineShopSolution.ApiIntegration.pdb
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\bin\Release\netcoreapp3.1\onlineShopSolution.Data.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\bin\Release\netcoreapp3.1\onlineShopSolution.Utilities.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\bin\Release\netcoreapp3.1\onlineShopSolution.ViewModel.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\bin\Release\netcoreapp3.1\onlineShopSolution.Utilities.pdb
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\bin\Release\netcoreapp3.1\onlineShopSolution.ViewModel.pdb
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\bin\Release\netcoreapp3.1\onlineShopSolution.Data.pdb
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\obj\Release\netcoreapp3.1\onlineShopSolution.ApiIntegration.csprojAssemblyReference.cache
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\obj\Release\netcoreapp3.1\onlineShopSolution.ApiIntegration.AssemblyInfoInputs.cache
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\obj\Release\netcoreapp3.1\onlineShopSolution.ApiIntegration.AssemblyInfo.cs
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\obj\Release\netcoreapp3.1\onlineShopSolution.ApiIntegration.csproj.CoreCompileInputs.cache
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\obj\Release\netcoreapp3.1\onlineShopSolution.ApiIntegration.csproj.CopyComplete
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\obj\Release\netcoreapp3.1\onlineShopSolution.ApiIntegration.dll
+E:\IT-STUDY\DATN\Code\eShop\OnlineShopSolution\onlineShopSolution.ApiIntegration\obj\Release\netcoreapp3.1\onlineShopSolution.ApiIntegration.pdb
